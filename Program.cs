@@ -19,10 +19,9 @@ var app = builder.Build();
 
 app.UseCors(x => x
     .AllowAnyHeader()
-    .AllowAnyMethod()
-    //.AllowCredentials()
-    .AllowAnyOrigin());
-    //.WithOrigins("https://www.jmr24.com"));
+        .AllowAnyMethod()
+        .AllowCredentials()
+        .WithOrigins("http://localhost:4200"));
 
 app.UseHttpsRedirection();
 
