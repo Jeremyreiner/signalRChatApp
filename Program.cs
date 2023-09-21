@@ -20,7 +20,7 @@ var app = builder.Build();
 app.UseCors(x => x
     .AllowAnyHeader()
     .AllowAnyMethod()
-    .AllowCredentials()
+    //.AllowCredentials()
     .AllowAnyOrigin());
     //.WithOrigins("https://www.jmr24.com"));
 
