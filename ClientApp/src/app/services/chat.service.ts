@@ -88,7 +88,7 @@ export class ChatService {
       content
     };
 
-    return this.chatConnection?.invoke('RecieveMessage', message)
+    return this.chatConnection?.invoke('ReceiveMessage', message)
       .catch(error => console.log('Send message error: ', error));
   }
 
