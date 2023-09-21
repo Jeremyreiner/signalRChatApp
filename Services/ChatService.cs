@@ -5,7 +5,7 @@ namespace signalR.Services
 {
     public class ChatService
     {
-        // key, value : { {jon, "collectionId"}, {jon, "collectionId"}}
+        // key, value : { {jon, "connectionId"}, {jon, "connectionId"}}
         private static readonly Dictionary<string, string> Users = new Dictionary<string, string>();
 
         public bool AddUserToList(string userToAdd)
@@ -48,13 +48,13 @@ namespace signalR.Services
             }
         }
 
-        public string GetUserByConnectionUser(string user)
+        public string GetConnectionIdByUser(string user)
         {
             lock (Users)
             {
                 return Users
-                    .Where(x => x.Value == user)
-                    .Select(x => x.Key)
+                    .Where(x => x.Key == user)
+                    .Select(x => x.Value)
                     .FirstOrDefault();
             }
         }
@@ -63,7 +63,7 @@ namespace signalR.Services
         {
             lock (Users)
             {
-                if(Users.ContainsKey(user))
+                if (Users.ContainsKey(user))
                     Users.Remove(user);
             }
         }
