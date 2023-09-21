@@ -19,17 +19,22 @@ var app = builder.Build();
 
 app.UseCors(x => x
     .AllowAnyHeader()
-        .AllowAnyMethod()
-        .AllowCredentials()
-        .WithOrigins("http://localhost:4200"));
+    .AllowAnyMethod()
+    .AllowCredentials()
+    .WithOrigins("http://localhost:4200"));
 
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
 
+app.UseDefaultFiles();
+app.UseStaticFiles();
+
 app.MapControllers();
 
 //Add Hubs
 app.MapHub<ChatHubs>("/hubs/chat");
+
+app.MapFallbackToController("Index", "FallBack");
 
 app.Run();

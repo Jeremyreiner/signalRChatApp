@@ -73,8 +73,6 @@ export class ChatService {
     this.chatConnection?.stop().catch(error => {
       console.log('Stopping chat connection error: ', error);
     });
-
-
   }
 
   async addUserConnectionId() {
