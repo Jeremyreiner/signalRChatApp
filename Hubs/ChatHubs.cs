@@ -58,7 +58,7 @@ namespace signalR.Hubs
             await Groups.AddToGroupAsync(Context.ConnectionId, privateGroupName);
 
             var toConnectionId = _chatService.GetConnectionIdByUser(message.To);
-
+             
             await Groups.AddToGroupAsync(toConnectionId, privateGroupName);
 
             //opens private chat box for the other end user
